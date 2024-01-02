@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#EEEDE7"
     android:orientation="vertical"
     tools:context=".MovieDetailsActivity">
 
@@ -66,6 +67,15 @@
             android:textColor="#4FC3F7"
             android:textSize="14sp"
             android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/btnTrailer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Watch Trailer"
+            android:backgroundTint="#868B8E"
+            android:textColor="#EEEDE7"
+            />
 
 
     </LinearLayout>

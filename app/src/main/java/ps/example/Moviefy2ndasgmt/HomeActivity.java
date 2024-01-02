@@ -27,6 +27,9 @@ import java.util.List;
 public class HomeActivity extends AppCompatActivity {
     private static final String API_KEY = "7550d3e4cb2f49c8572a7d0a86e66067"; //i contacted TMDb and they gave me this key
     private static final String TMDB_BASE_URL = "https://api.themoviedb.org/3/movie/popular";
+    ////////////////////////////////////////////////////////////////////////////////////////////
+//    private static final String OMDB_API_KEY = "";
+//    private static final String OMDB_API_BASE_URL = "http://www.omdbapi.com/";
     private RequestQueue requestQueue;
 
     private Button btnLogout;
