@@ -56,6 +56,17 @@
             android:text="@string/description"
             android:textSize="18sp" />
 
+        <TextView
+            android:id="@+id/dRelease"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginBottom="20dp"
+            android:text="@string/release_date"
+            android:textColor="#4FC3F7"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
 
     </LinearLayout>
 

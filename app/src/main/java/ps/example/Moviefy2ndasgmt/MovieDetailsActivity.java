@@ -14,6 +14,7 @@ public class MovieDetailsActivity extends AppCompatActivity {
     private TextView dTitle;
     private TextView dRating;
     private TextView dDescription;
+    private TextView dRelease;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,13 +28,14 @@ public class MovieDetailsActivity extends AppCompatActivity {
         String title = intent.getStringExtra("title");
         String description = intent.getStringExtra("description");
         String rating = intent.getStringExtra("rating");
-
-
+        String release = intent.getStringExtra("release");
 
         dTitle.setText(title);
 
-        dDescription.setText(description);
         dRating.setText(rating);
+        dDescription.setText(description);
+        dRelease.setText("Release Date: " + release);
+
     }
 
     private void setupViews() { //just making the hooks
@@ -41,6 +43,8 @@ public class MovieDetailsActivity extends AppCompatActivity {
         dTitle = findViewById(R.id.dTitle);
         dRating = findViewById(R.id.dRating);
         dDescription = findViewById(R.id.dDescription);
+
+        dRelease = findViewById(R.id.dRelease);
 
     }
 }

@@ -4,13 +4,16 @@ public class Movie {
     private String poster;
     private String description;
     private Double rating;
+    private String release;
 
-    public Movie(String title, String poster, String description, Double rating) {
+
+    public Movie(String title, String poster, String description, Double rating,String release) {
 
         this.title = title;
         this.poster = poster;
         this.description = description;
         this.rating = rating;
+        this.release = release;
     }
 
     public String getTitle() {
@@ -27,6 +30,14 @@ public class Movie {
 
     public Double getRating() {
         return rating;
+    }
+
+    public String getRelease() {
+        return release;
+    }
+
+    public void setRelease(String release) {
+        this.release = release;
     }
 
     @Override

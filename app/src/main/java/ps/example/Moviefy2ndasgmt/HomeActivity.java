@@ -4,19 +4,16 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.app.DownloadManager;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.os.AsyncTask;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-import android.widget.ImageView;
+import android.view.View;
+import android.widget.Button;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
-import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 
@@ -24,10 +21,6 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.net.HttpURLConnection;
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -35,6 +28,8 @@ public class HomeActivity extends AppCompatActivity {
     private static final String API_KEY = "7550d3e4cb2f49c8572a7d0a86e66067"; //i contacted TMDb and they gave me this key
     private static final String TMDB_BASE_URL = "https://api.themoviedb.org/3/movie/popular";
     private RequestQueue requestQueue;
+
+    private Button btnLogout;
 
     private List<Movie> movieList;
     private RecyclerView movies;
@@ -45,10 +40,21 @@ public class HomeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_home);
 
         setupViews();
+
+
+        btnLogout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent =new Intent(HomeActivity.this, LoginActivity.class);
+                startActivity(intent);
+            }
+        });
+
     }
 
     private void setupViews() { //just making the hooks
         movies = findViewById(R.id.movies);
+        btnLogout = findViewById(R.id.btnLogout);
 //        edtLogPassword = findViewById(R.id.edtLogPassword);
 //        rmmbrme = findViewById(R.id.rmmbrme);
         movies.setHasFixedSize(true);
@@ -86,9 +92,10 @@ public class HomeActivity extends AppCompatActivity {
                                 String poster = movieJson.getString("poster_path");
                                 String description = movieJson.getString("overview");
                                 Double rating = movieJson.getDouble("vote_average");
+                                String release = movieJson.getString("release_date");
 
                                 // Create a Movie object
-                                Movie movie = new Movie(title, poster, description, rating);
+                                Movie movie = new Movie(title, poster, description, rating,release);
 
                                 movieList.add(movie);
 

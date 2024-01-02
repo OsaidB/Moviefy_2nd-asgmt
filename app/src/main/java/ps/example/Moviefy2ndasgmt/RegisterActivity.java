@@ -7,7 +7,6 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -64,7 +63,7 @@ public class RegisterActivity extends AppCompatActivity {
                 resetAll( );
 
 
-                Intent intent = new Intent(RegisterActivity.this,MainActivity.class);
+                Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
                 startActivity(intent);
 
 
@@ -92,7 +91,7 @@ public class RegisterActivity extends AppCompatActivity {
     }
 
     private void setupSharedPrefs() {   //siting SharedPrefs up (making the app ready to Read/Write)
-        prefs = getSharedPreferences(MainActivity.USERS_LIST, 0);
+        prefs = getSharedPreferences(LoginActivity.USERS_LIST, 0);
         editor = prefs.edit();  //to Write
     }
 
@@ -141,7 +140,7 @@ public class RegisterActivity extends AppCompatActivity {
             String json = gson.toJson(users);
 
             //saving data in sharedPrefs
-            editor.putString(MainActivity.USERS_LIST, json);//main line
+            editor.putString(LoginActivity.USERS_LIST, json);//main line
 
             editor.commit();
 
